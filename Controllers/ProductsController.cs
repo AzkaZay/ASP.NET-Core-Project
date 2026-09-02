@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PatisserieCD.Models;
 
 namespace PatisserieCD.Controllers
 {
@@ -6,7 +7,19 @@ namespace PatisserieCD.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            Product product = new Product
+            {
+                Id = 1,
+                Reference = "CAKE001",
+                Name = "Chocolate Cake",
+                Description = "Bento Birthday Cake",
+                UnitPrice = 25.00m,
+                Available = true,
+                PreparationLeadTimeHours = 24,
+
+            };
+
+            return View(product);
         }
     }
 }
