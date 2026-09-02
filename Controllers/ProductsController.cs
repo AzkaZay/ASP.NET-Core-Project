@@ -10,13 +10,8 @@ namespace PatisserieCD.Controllers
             Product product = new Product
             {
                 Id = 1,
-                Reference = "CAKE001",
                 Name = "Chocolate Cake",
-                Description = "Bento Birthday Cake",
-                UnitPrice = 25.00m,
-                Available = true,
-                PreparationLeadTimeHours = 24,
-
+                Price = 25.00m
             };
 
             return View(product);
