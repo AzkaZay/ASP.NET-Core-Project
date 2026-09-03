@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PatisserieCD.Models;
+using PatisserieCD.Services;
 
 namespace PatisserieCD.Controllers
 {
     public class ProductsController : Controller
     {
+        private readonly IProductService _productService;
+        public ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
         public IActionResult Index()
         {
-            Product product = new Product
-            {
-                Id = 1,
-                Name = "Chocolate Cake",
-                Price = 25.00m
-            };
+            var product = _productService.GetProduct();
 
             return View(product);
         }
