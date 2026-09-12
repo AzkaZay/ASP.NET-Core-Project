@@ -1,7 +1,6 @@
 ﻿using PatisserieCD.Models;
 
 namespace PatisserieCD.Services;
-
 public class ProductService : IProductService
 {
     public Product GetProduct()
