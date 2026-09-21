@@ -12,8 +12,12 @@ public class ProductService : IProductService
         _context = context;
     }
 
-    public Product GetProduct()
+    public List<Product> GetProducts()
     {
-        return _context.Products.First();
+        return _context.Products.ToList();
+    }
+    public Product? GetProductById(int id)
+    {
+        return _context.Products.FirstOrDefault(p => p.Id == id);
     }
 }
