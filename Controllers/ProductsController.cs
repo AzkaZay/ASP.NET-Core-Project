@@ -16,5 +16,11 @@ namespace PatisserieCD.Controllers
 
             return View(products);
         }
+        public IActionResult Details(int id)
+        {
+            var product = _productService.GetProductById(id);
+
+            return View(product);
+        }
     }
 }
