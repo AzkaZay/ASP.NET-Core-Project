@@ -12,7 +12,13 @@ namespace PatisserieCD.Controllers
         }
         public IActionResult Index()
         {
-            var product = _productService.GetProduct();
+            var products = _productService.GetProducts();
+
+            return View(products);
+        }
+        public IActionResult Details(int id)
+        {
+            var product = _productService.GetProductById(id);
 
             return View(product);
         }

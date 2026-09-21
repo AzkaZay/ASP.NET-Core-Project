@@ -1,13 +1,21 @@
+using PatisserieCD.Data;
 using PatisserieCD.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddDbContext<PatisserieDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("PatisserieDatabase")));
+
 var app = builder.Build();
 
-builder.Services.AddScoped<IProductService, ProductService>();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

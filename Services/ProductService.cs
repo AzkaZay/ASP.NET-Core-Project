@@ -1,15 +1,23 @@
-﻿using PatisserieCD.Models;
+﻿using PatisserieCD.Data;
+using PatisserieCD.Models;
 
 namespace PatisserieCD.Services;
+
 public class ProductService : IProductService
 {
-    public Product GetProduct()
+    private readonly PatisserieDbContext _context;
+
+    public ProductService(PatisserieDbContext context)
     {
-        return new Product
-        {
-            Id = 1,
-            Name = "Chocolate Cake",
-            Price = 25.00m
-        };
+        _context = context;
+    }
+
+    public List<Product> GetProducts()
+    {
+        return _context.Products.ToList();
+    }
+    public Product? GetProductById(int id)
+    {
+        return _context.Products.FirstOrDefault(p => p.Id == id);
     }
 }
