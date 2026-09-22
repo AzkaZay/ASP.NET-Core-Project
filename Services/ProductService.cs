@@ -1,4 +1,5 @@
-﻿using PatisserieCD.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PatisserieCD.Data;
 using PatisserieCD.Models;
 
 namespace PatisserieCD.Services;
@@ -18,6 +19,8 @@ public class ProductService : IProductService
     }
     public Product? GetProductById(int id)
     {
-        return _context.Products.FirstOrDefault(p => p.Id == id);
+        return _context.Products
+       .Include(p => p.Category)
+       .FirstOrDefault(p => p.Id == id);
     }
 }
