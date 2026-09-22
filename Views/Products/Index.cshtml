@@ -4,8 +4,17 @@
 
 @foreach (var product in Model)
 {
-    <div>
-        <h2>@product.Name</h2>
-        <p>Price: @product.UnitPrice</p>
-    </div>
+    <h2>
+        <a asp-controller="Products"
+           asp-action="Details"
+           asp-route-id="@product.Id">
+            @product.Name
+        </a>
+    </h2>
+
+    <p>@product.Description</p>
+
+    <p>Price: @product.UnitPrice</p>
+
+    <p>Preparation time: @product.PreparationLeadTimeHours hours</p>
 }
