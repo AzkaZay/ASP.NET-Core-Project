@@ -1,6 +1,7 @@
-﻿namespace PatisserieCD.Services
+﻿using PatisserieCD.Models;
+
+namespace PatisserieCD.Services;
+public interface ICategoryService
 {
-    public interface ICategoryService
-    {
-    }
+    List<Category> GetCategories();
 }
