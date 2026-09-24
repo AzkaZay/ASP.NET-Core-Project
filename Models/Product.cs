@@ -7,4 +7,10 @@
         public string Description { get; set; }
         public decimal UnitPrice { get; set; }
         public int PreparationLeadTimeHours { get; set; }
-    }
+
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        public string? Photo { get; set; }
+        public bool IsAvailable { get; set; }
+}
