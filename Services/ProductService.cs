@@ -23,4 +23,9 @@ public class ProductService : IProductService
        .Include(p => p.Category)
        .FirstOrDefault(p => p.Id == id);
     }
+    public void AddProduct(Product product)
+    {
+        _context.Products.Add(product);
+        _context.SaveChanges();
+    }
 }

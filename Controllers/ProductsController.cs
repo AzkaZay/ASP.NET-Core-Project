@@ -22,5 +22,21 @@ namespace PatisserieCD.Controllers
 
             return View(product);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+
+            _productService.AddProduct(product);
+
+            return RedirectToAction("Index");
+        }
     }
 }
