@@ -1,0 +1,25 @@
+﻿@model PatisserieCD.Models.Category
+
+<h1>@Model.Name</h1>
+
+<h2>Products</h2>
+
+@if (Model.Products.Any())
+{
+    <ul>
+        @foreach (var product in Model.Products)
+        {
+            <li>
+                <a asp-controller="Products"
+                   asp-action="Details"
+                   asp-route-id="@product.Id">
+                    @product.Name
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No products in this category.</p>
+}
