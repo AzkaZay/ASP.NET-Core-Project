@@ -6,7 +6,7 @@ public class Order
 
     public DateTime OrderDate { get; set; }
 
-    public string Status { get; set; }
+    public OrderStatus Status { get; set; }
 
     public decimal TotalAmount { get; set; }
 
