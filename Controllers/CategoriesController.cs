@@ -17,4 +17,14 @@ public class CategoriesController : Controller
 
         return View(categories);
     }
+    public IActionResult Details(int id)
+    {
+        var category = _categoryService.GetCategoryById(id);
+        if (category == null)
+        {
+            return NotFound();
+        }
+
+        return View(category);
+    }
 }
